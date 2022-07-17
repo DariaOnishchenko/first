@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function(){
+
+                let correct = document.querySelector('#button5');
+                correct.addEventListener('click', function()
+                {
+                    correct.style.backgroundColor = '#00ff00';
+                    document.querySelector('#announcement1').innerHTML = 'Correct!';
+                });
+
+                let incorrect = document.querySelectorAll('.wrong');
+                for(let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function()
+                    {
+                        incorrect[i].style.backgroundColor = '#ff0000';
+                        document.querySelector('#announcement1').innerHTML = 'Incorrect!';
+                    });
+                }
+
+                document.querySelector('#check').addEventListener('click', function()
+                {
+                    let input = document.querySelector('.form_input');
+                    if (input.value == 'Switzerland')
+                    {
+                        input.style.backgroundColor = "#00ff00";
+                        document.querySelector('#announcement2').innerHTML = 'Correct!';
+                    }
+                    else
+                    {
+                        input.style.backgroundColor = "#ff0000";
+                        document.querySelector('#announcement2').innerHTML = 'Incorrect!';
+                    }
+                });
+        });
+
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the approximate ratio of people to sheep in New Zeland?</h3>
+                <!--зробити 4 кнопки-->
+                <!--1 кнопкa-->
+                <button class="wrong">6 people per 1 sheep</button>
+                <!--2 кнопкa-->
+                <button class="wrong">3 people per 1 sheep</button>
+                <!--3 кнопкa-->
+                <button class="wrong">1 person per 1 sheep</button>
+                <!--4 кнопкa-->
+                <button class="wrong">1 person per 3 sheep</button>
+                <!--5 кнопкa-->
+                <button id="button5">1 person per 6 sheep</button>
+                <p id = 'announcement1'></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In which country it is illegal to own only one guinea pig, as alone guinea pig might get lonely?</h3>
+                <!--поле введення-->
+                <input type = 'text' class = 'form_input'>
+                <button id = "check">Check answer</button>
+                <p id = "announcement2"></p>
+            </div>
+        </div>
+    </body>
+</html>
